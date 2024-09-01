@@ -9,6 +9,6 @@ jobs:
       - uses: adambirds/docker-compose-action@v1.3.0
         with:
           compose-file: "./docker-compose.yml"
-          up-flags: --profile test
+          #up-flags: --profile test
           test-container: "housing-api"
           test-command: "curl http://0.0.0.0:3000"
