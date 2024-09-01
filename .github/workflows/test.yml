@@ -4,11 +4,17 @@ on: [push]
 jobs:
   test-compose-action:
     runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker:25.0.3
+        options: --privileged
     steps:
       - name: checkout
         uses: actions/checkout@v3
 
       - name: compose up
-        uses: hoverkraft-tech/compose-action@v2.0.1
-        # with:
-        #   up-flags: "--profile test"
+        run: |
+          docker-compose  --profile test up  -d
+          sleep 5m
+          docker-compose logs housing-unit-tests
+          docker-compose down
