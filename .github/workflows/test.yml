@@ -3,11 +3,11 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   test-compose-action:
-  runs-on: ubuntu-latest
-    - uses: actions/checkout@v3
-    - uses: adambirds/docker-compose-action@v1.3.0
-      with:
-        compose-file: "./docker-compose.yml"
-        up-flags: --profile test
-        test-container: "housing-api"
-        test-command: "curl http://0.0.0.0:3000"
+    runs-on: ubuntu-latest
+      - uses: actions/checkout@v3
+      - uses: adambirds/docker-compose-action@v1.3.0
+        with:
+          compose-file: "./docker-compose.yml"
+          up-flags: --profile test
+          test-container: "housing-api"
+          test-command: "curl http://0.0.0.0:3000"
