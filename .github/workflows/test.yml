@@ -14,7 +14,7 @@ jobs:
 
       - name: compose up
         run: |
-          docker-compose  --profile test up  -d
+          docker compose  --profile test up  -d
           sleep 5m
-          docker-compose logs housing-unit-tests
-          docker-compose down
+          docker compose logs housing-unit-tests
+          docker compose down
