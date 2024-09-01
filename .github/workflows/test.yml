@@ -14,7 +14,9 @@ jobs:
 
       - name: compose up
         run: |
-          docker compose  --profile test up  -d
-          sleep 5m
+          docker compose  --profile test up  -d --quiet-pull
+          export SLEEP_TIME='2m'
+          echo "nighty night sleeping for $SLEEP_TIME"
+          sleep $SLEEP_TIME
           docker compose logs housing-unit-tests
           docker compose down
