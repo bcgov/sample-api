@@ -10,4 +10,4 @@ COPY ./ .
 RUN pip install --quiet -r requirements.txt
 
 
-ENTRYPOINT ["fastapi", "run", "./sample_api/main.py"]
+#ENTRYPOINT ["fastapi", "run", "./sample_api/main.py"]
