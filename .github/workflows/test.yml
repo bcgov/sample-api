@@ -10,5 +10,5 @@ jobs:
 
       - name: compose up
         uses: hoverkraft-tech/compose-action@v2.0.1
-        with:
-          up-flags: "--profile test"
+        # with:
+        #   up-flags: "--profile test"
