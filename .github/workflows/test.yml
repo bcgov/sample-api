@@ -9,9 +9,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: compose up
-        uses: adambirds/docker-compose-action@v1.4.0
+        uses: hoverkraft-tech/compose-action@v2.0.1
         with:
-          compose-file: "./docker-compose.yml"
-          #up-flags: --profile test
-          #test-container: "housing-api"
-          #test-command: "curl http://0.0.0.0:3000"
+          up-flags: "--profile test"
