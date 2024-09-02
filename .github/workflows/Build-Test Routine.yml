@@ -27,10 +27,6 @@ jobs:
 
       - name: Run tests
         run: ./run-unit-tests.sh
-        
-      - name: Build Docker Image
-        run: |
-          docker build -t sample-api:latest .
 
   build_and_push:
     runs-on: ubuntu-latest
