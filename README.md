@@ -67,11 +67,11 @@ This Dockerfile builds the Docker image of the sample-api application. It includ
     	WORKDIR /app
 - Install Poetry
 	RUN pip install poetry
-- copy the file poetry.lock, pyproject.toml to working directory of the container
+- Copy the file poetry.lock, pyproject.toml to working directory of the  container
 	COPY pyproject.toml poetry.lock* ./
 - Install the dependencies
 	RUN poetry install --no-root --no-dev
-- copy rest of the code to working directory
+- Copy rest of the code to working directory
 	COPY . . 
 - Expose the ports where the app runs on.
 	EXPOSE 8000
