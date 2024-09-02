@@ -10,8 +10,9 @@ WORKDIR /app
 RUN pip install poetry
 COPY pyproject.toml poetry.lock* ./
 RUN poetry install --no-root --no-dev
+#COPY start-local.sh /app/start-local.sh
 COPY . .
-EXPOSE 8000
+RUN chmod +x /app/start-local.sh
+EXPOSE 3000
 ENV PYTHONUNBUFFERED=1
-CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-
+CMD ["./start-local.sh"]

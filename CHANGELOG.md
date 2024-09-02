@@ -6,7 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ## Unreleased [Sep-01-2024]
 
 ## Added
-   . Added Dcokerfile to build the sample-api using docker conatiners.
+Added Dcokerfile to build the sample-api using docker conatiners.
+
+## Validation
+curl http://localhost:3000
+which returns "{"message":"Sample API"}"
 
 ## 1.1.0 [Sep-01-2024]
-   . Initial Release
+Initial Release

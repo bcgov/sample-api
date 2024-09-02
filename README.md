@@ -64,7 +64,7 @@ This Dockerfile builds the Docker image of the sample-api application. It includ
         libpq-dev \
         && rm -rf /var/lib/apt/lists/*
 - Set the working directory in the container:
-    	WORKDIR /app
+    WORKDIR /app
 - Install Poetry
 	RUN pip install poetry
 - Copy the file poetry.lock, pyproject.toml to working directory of the  container
@@ -72,17 +72,18 @@ This Dockerfile builds the Docker image of the sample-api application. It includ
 - Install the dependencies
 	RUN poetry install --no-root --no-dev
 - Copy rest of the code to working directory
-	COPY . . 
+	COPY . .
+- Make the start script executable
+	RUN chmod +x /app/start-local.sh	
 - Expose the ports where the app runs on.
-	EXPOSE 8000
+	EXPOSE 3000
 - Define Environment variables
 	ENV PYTHONUNBUFFERED=1
-- Run the fastapi  with uvicorn
-	CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
+- Run the  start script
+	CMD ["./start-local.sh"]
 
 ## Build the docker image
 - docker build -t sample-api .
 
 ## Run the docker image 
-- docker run -d -p 8000:8000 --name my-sample-api sample-api
- 
+- docker run -d -p 3000:3000 --name my-sample-api sample-api
