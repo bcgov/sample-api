@@ -48,12 +48,3 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ github.repository }}/sample-api:latest --push .
-
-      - name: Make image public
-        run: |
-          ghcr.io/${{ github.repository }}/sample-api:latest
-          curl -X PATCH \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/user/packages/container/${{ github.repository }}/sample-api/visibility \
-            -d '{"visibility":"public"}'        
