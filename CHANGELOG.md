@@ -3,14 +3,15 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
-## Unreleased [Sep-01-2024]
+## Unreleased [Sep-02-2024]
 
 ## Added
-Added Dcokerfile to build the sample-api using docker conatiners.
+- Added Dcokerfile to build the sample-api using docker conatiners.
+- Added workflow to run tests, build and push image to github container registry.
+  actions/workflows/Build-Test Routine.yml
 
 ## Validation
 curl http://localhost:3000
-which returns "{"message":"Sample API"}"
-
-## 1.1.0 [Sep-01-2024]
-Initial Release
+ 
+## 1.1.0 [Sep-02-2024]
+ Initial Release

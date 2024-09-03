@@ -69,6 +69,8 @@ This Dockerfile builds the Docker image of the sample-api application. It includ
 	RUN pip install poetry
 - Copy the file poetry.lock, pyproject.toml to working directory of the  container
 	COPY pyproject.toml poetry.lock* ./
+- Set Environment Variables to the Path	for poetry
+    ENV PATH="/root/.local/bin:$PATH"	
 - Install the dependencies
 	RUN poetry install --no-root --no-dev
 - Copy rest of the code to working directory
@@ -87,3 +89,24 @@ This Dockerfile builds the Docker image of the sample-api application. It includ
 
 ## Run the docker image 
 - docker run -d -p 3000:3000 --name my-sample-api sample-api
+
+## Instructions on how to pull and run the image
+- docker pull ghcr.io/narmada84/sample-api/sample-api:latest
+## Run the docker container using the pulled image
+- docker run --rm -p 3000:3000 ghcr.io/narmada84/sample-api/sample-api:latest
+## Access application
+- once the docker container starts running access the application using below url 
+	http://localhost:3000 and the docs can be found this url : http://localhost:3000/docs
+
+## Github workflow for running unit tests and publish the docker image to github container registry
+- unit tests are executed as part of github workflows, here are the steps how to run the workflow
+   - workflow is triggered automatically on `push` and `pull_request`.
+   - push a commit to main branch or create a pull request to main branch, this automatically triggers the workflow.
+   - go to the actions tab on the github repo, where all the workflows runs can be seen.
+   - click on the most recent workflow and all the details of the each step can be viewed.
+   - Refer to the WORKFLOW_SUCCESS.md file for the screenshot of the successful workflow.
+   - Link the most recent successfull workflow- https://github.com/narmada84/sample-api/actions/runs/10672143278/job/29579095648
+
+## How to trigger and run the work flow
+-  workflows can be triggered automatically on every push and pull request to the branch specified on the Build-Test Routine .yml file.
+- It can also be triggered manually by navigating to actions tab on the repo and click on Build-Test Routine workflow and click on run it.

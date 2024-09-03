@@ -5,12 +5,11 @@ RUN apt-get update && \
     gcc \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 RUN pip install poetry
 COPY pyproject.toml poetry.lock* ./
+ENV PATH="/root/.local/bin:$PATH"
 RUN poetry install --no-root --no-dev
-#COPY start-local.sh /app/start-local.sh
 COPY . .
 RUN chmod +x /app/start-local.sh
 EXPOSE 3000
