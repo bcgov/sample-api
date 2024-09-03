@@ -109,4 +109,4 @@ This Dockerfile builds the Docker image of the sample-api application. It includ
 
 ## How to trigger and run the work flow
 -  workflows can be triggered automatically on every push and pull request to the branch specified on the Build-Test Routine .yml file.
-- It can also be triggered manually by navigating to actions tab on the repo and click on Build-Test Routine workflow and click on run it.
+- It can also be triggered manually by navigating to actions tab on the repo and click on Build-Test Routine workflow and click on Re run all jobs.

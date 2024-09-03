@@ -55,7 +55,7 @@
 
 # Update scripts and  monitoring
     - Update deployment(CICD) scripts with this new test database and tables details for continous integration and deployment. 
-    _  consider adding this test db tables existing for .github/workflows to automatically deploy to this environment.
+    _  consider adding this test db to existing .github/workflows to automatically deploy to this environment.
     - Update application connection strings on test environment and make sure applictaions can access the test db.
     - Check the permissions.
     - Update monitoring tools like grafana dashboard and add to splunk for more logging to check performance and high availability.
